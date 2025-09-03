@@ -63,7 +63,7 @@ const renderTodos = () => {
         todo.text
       }</p>
                 </div>
-                <button class="bg-primary py-1 px-2 rounded-xl font-VazirLight transition duration-200" onclick = "removeTodo(${index})">حذف</button>
+                <button  class="remove-todo bg-primary py-1 px-2 rounded-xl font-VazirLight transition duration-200" onclick = "removeTodo(${index})">حذف</button>
             </div>
    `
     );
@@ -98,6 +98,18 @@ const removeTodo = (index) => {
   localStorage.setItem("todos", JSON.stringify(todos));
   renderTodos();
   showToastBar("تسک با موفقیت حذف شد");
+  const removeBtns = document.querySelectorAll(".remove-todo");
+  removeBtns.forEach((btn) => {
+    console.log(btn);
+
+    btn.disabled = true;
+    btn.style.opacity = "0.5";
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.style.opacity = "1";
+    }, 2000);
+  });
 };
 const showDoneTask = () => {
   const doneTodos = todos.filter((todo) => todo.completed === true);
@@ -161,7 +173,23 @@ const showToastBar = (message) => {
   }, 20);
 };
 input.addEventListener("keyup", getInputValue);
-addBtn.addEventListener("click", addTodo);
+addBtn.addEventListener("click", () => {
+  addTodo();
+
+  addBtn.disabled = true;
+  addBtn.style.opacity = "0.5";
+
+  setTimeout(() => {
+    addBtn.disabled = false;
+    addBtn.style.opacity = "1";
+  }, 2000);
+});
+input.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    addTodo();
+  }
+});
 doneTaskBtn.addEventListener("click", showDoneTask);
 undoneTaskBtn.addEventListener("click", showUndoneTask);
 allTasksBtn.addEventListener("click", renderTodos);
