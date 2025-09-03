@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body class="container w-full max-w-[700px] flex flex-col justify-center items-center h-screen font-VazirRegular bg-gradient-to-l from-primary to-secondary text-white">
+ <div class="container flex items-center justify-between mb-7">
+    <button class="done-task rounded-xl sm:px-5 sm:py-4 px-0.5 py-2.5 shadow-normal bg-gradient-to-l from-primary to-secondary transform active:scale-110 transition duration-200 outline-0">تسک های انجام شده</button>
+    <button class="all-task rounded-xl sm:px-5 sm:py-4 px-0.5 py-2.5 shadow-normal bg-gradient-to-l from-primary to-secondary transform active:scale-110 transition duration-200 outline-0">همه تسک ها</button>
+    <button class="undone-task rounded-xl sm:px-5 sm:py-4 px-0.5 py-2.5 shadow-normal bg-gradient-to-l from-primary to-secondary transform active:scale-110 transition duration-200 outline-0">تسک های باقیمانده</button>
+ </div>
+        <div class="container w-full max-w-[700px] max-h-[400px] py-5 bg-gradient-to-l from-primary to-secondary shadow-normal rounded-xl">
+            <h1 class="text-white font-VazirBold text-3xl">تودو لیست</h1>
+            <div class="flex gap-1 w-full mt-5">
+                <input id="input" type="text" placeholder="تسک مورد نظر را وارد کنید..." class="flex-1 outline-0 rounded-xl border border-white p-1 placeholder-white/50 text-white">
+                <button id="add-btn" class="bg-primary py-1 px-2 rounded-xl font-VazirLight transition duration-200">اضافه کردن</button>
+            </div>
+            <div id="todo-wrapper" class="scroll-bar mt-5 space-y-3 h-[250px] overflow-y-auto ">
+                <!-- data loaded from js -->
+            </div>
+        </div>
+    
+    <div id="theme" class="w-28 h-7 bg-gradient-to-l from-amber-50 to-amber-100 shadow-normal rounded-xl absolute bottom-4 left-4 flex items-center justify-center gap-4">
+            <button class="w-4 h-4 rounded-full bg-gradient-to-l from-primary2 to-secondary2 block" data-theme ="theme2"></button>
+            <button class="w-4 h-4 rounded-full bg-gradient-to-l from-primary3 to-secondary3 block" data-theme ="theme3"></button>
+            <button class="w-4 h-4 rounded-full bg-gradient-to-l from-[#9796f0] to-[#fbc7d4] block" data-theme ="theme1"></button>
+    </div>
+
+
+    <div class="toast-box hidden fixed top-1 left-5 px-4 py-2 h-[100px] w-[300px] overflow-hidden rounded-xl text-white border-2 border-white bg-gradient-to-r from-primary to-secondary shadow-normal">
+        <div class="flex items-center justify-center gap-3 mt-7">
+            <p class="toast-message font-VazirBold"></p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>                    
+        </div>
+            <div >
+                <div class= "process-bar bg-white h-1 absolute bottom-0 right-0 rounded-xl"></div>
+            </div>
+      </div>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+
+@theme{
+    --color-primary : #9796f0;
+    --color-secondary : #fbc7d4;
+
+    --color-primary2 : #AA076B;
+    --color-secondary2 : #61045F;
+
+    --color-primary3 : #16A085;
+    --color-secondary3 : #F4D03F;
+   
+    --breakpoint-xs: 480px;
+
+  
+
+    --font-VazirBold : "vazir Bold";
+    --font-VazirLight : "vazir Light";
+    --font-VazirRegular : "vazir Regular"; 
+    --shadow-normal :   0px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+@layer base{
+    @font-face {
+      font-family: "vazir Bold" ;
+      src: url(fonts/Vazirmatn-Bold.woff2);
+    }
+    @font-face {
+      font-family: "vazir Light" ;
+      src: url(fonts/Vazirmatn-Light.woff2);
+    }
+    @font-face {
+      font-family: "vazir Regular" ;
+      src: url(fonts/Vazirmatn-Regular.woff2);
+    }
+}
+@utility container {
+    @apply  mx-auto px-4 lg:px-2.5 ;
+  }
+
+
+  @layer components{
+    .rtl{
+      direction: rtl;
+    }
+    .scroll-bar{
+     direction: ltr;
+    }
+    .scroll-bar::-webkit-scrollbar{
+     width: 4px;
+     height: 15px;
+    }
+    .scroll-bar::-webkit-scrollbar-track{
+     
+     border-radius: 10px;
+     color: red;
+    }
+    .scroll-bar::-webkit-scrollbar-track{
+     
+      @apply bg-stone-400
+    }
+    
+    
+    /* Handle */
+    .scroll-bar::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 50px;
+    }
+  }
